@@ -4,6 +4,7 @@ namespace BlogProject.PresentationLayer.Areas.Author.Models
 {
     public class CustomIdentityValidator : IdentityErrorDescriber
     {
+       
         public override IdentityError PasswordTooShort(int length)
         {
             return new() { Code = "PasswordTooShort", Description = "Şifre en az 8 karakter Olmalıdır" };

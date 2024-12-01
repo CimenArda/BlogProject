@@ -24,6 +24,10 @@ namespace BlogProject.PresentationLayer.Areas.Author.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(RegisterViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model); // Hata mesajları ile formu geri gönder
+            }
             AppUser appUser = new AppUser()
             {
                 Name = model.Name,
