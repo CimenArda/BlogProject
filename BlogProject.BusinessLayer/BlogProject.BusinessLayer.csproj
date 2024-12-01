@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlogProject.DataAccesLayer\BlogProject.DataAccesLayer.csproj" />
+    <ProjectReference Include="..\BlogProject.EntityLayer\BlogProject.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
