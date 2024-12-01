@@ -1,4 +1,5 @@
 using BlogProject.DataAccesLayer.Context;
+using BlogProject.PresentationLayer.Areas.Author.Models;
 using SensiveBlogProject.BusinessLayer.Container;
 using SensiveBlogProject.EntityLayer.Concrete;
 
@@ -10,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BlogContext>();
 
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<BlogContext>();
 
 builder.Services.ContainerDependencies();
 

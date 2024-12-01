@@ -47,11 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\Author\Controllers\" />
     <Folder Include="Areas\Author\Data\" />
-    <Folder Include="Areas\Author\Models\" />
-    <Folder Include="Areas\Author\Views\" />
   </ItemGroup>
 
 </Project>
