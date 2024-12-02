@@ -17,5 +17,12 @@ namespace SensiveBlogProject.DataAccessLayer.EntityFramework
         {
         }
 
+        public List<Article> LastTake5ListArticlesWithCategory()
+        {
+            using (var context = new BlogContext())
+            {
+                return context.Articles.Include(x => x.Category).OrderByDescending(x=>x.ArticleId).Take(5).ToList();
+            }
+        }
     }
 }

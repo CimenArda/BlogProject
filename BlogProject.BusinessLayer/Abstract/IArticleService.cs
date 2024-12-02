@@ -9,6 +9,7 @@ namespace SensiveBlogProject.BusinessLayer.Abstract
 {
     public interface IArticleService :IGenericService<Article>
     {
-  
+        List<Article> TLastTake5ListArticlesWithCategory();
+
     }
 }

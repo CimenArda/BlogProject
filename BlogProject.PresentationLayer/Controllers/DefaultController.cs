@@ -2,7 +2,7 @@
 
 namespace BlogProject.PresentationLayer.Controllers
 {
-    public class ArticleController : Controller
+    public class DefaultController : Controller
     {
         public IActionResult Index()
         {

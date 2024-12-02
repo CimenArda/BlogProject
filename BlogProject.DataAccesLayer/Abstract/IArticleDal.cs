@@ -9,6 +9,6 @@ namespace SensiveBlogProject.DataAccessLayer.Abstract
 {
     public interface IArticleDal :IGenericDal<Article>
     {
-       
+        List<Article> LastTake5ListArticlesWithCategory();
     }
 }

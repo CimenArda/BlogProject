@@ -46,6 +46,11 @@ namespace SensiveBlogProject.BusinessLayer.Concrete
 
         }
 
+        public List<Article> TLastTake5ListArticlesWithCategory()
+        {
+         return _ArticleDal.LastTake5ListArticlesWithCategory();
+        }
+
         public void TUpdate(Article entity)
         {
             _ArticleDal.Update(entity);
