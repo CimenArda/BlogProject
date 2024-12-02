@@ -14,8 +14,8 @@ namespace BlogProject.PresentationLayer.ViewComponents.DefaultViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var value = _articleService.TGetAll();
-            return View(value);
+            var values = _articleService.TGetAll();
+            return View(values);
         }
     }
 }
