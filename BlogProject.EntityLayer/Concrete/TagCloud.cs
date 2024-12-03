@@ -11,6 +11,10 @@ namespace SensiveBlogProject.EntityLayer.Concrete
         public int TagCloudId { get; set; }
         public string Title { get; set; }
 
+        public Article Article { get; set; }
+
+        public int ArticleID { get; set; }
+
 
 
     }
