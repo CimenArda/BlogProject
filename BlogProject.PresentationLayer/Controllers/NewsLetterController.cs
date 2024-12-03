@@ -17,8 +17,16 @@ namespace BlogProject.PresentationLayer.Controllers
         [HttpPost]
         public IActionResult Subscribe(NewsLetter newsLetter)
         {
-            _newsletterService.TInsert(newsLetter);
-            return RedirectToAction("Index", "Default");
+            try
+            {
+                _newsletterService.TInsert(newsLetter);
+                return Json(new { success = true, message = "Abonelik işlemi başarılı!" });
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, message = "Abonelik işlemi sırasında bir hata oluştu." });
+            }
         }
+
     }
 }

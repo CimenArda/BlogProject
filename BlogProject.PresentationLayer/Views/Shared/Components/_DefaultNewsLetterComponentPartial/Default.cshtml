@@ -1,37 +1,58 @@
 ﻿@using SensiveBlogProject.EntityLayer.Concrete
 @model NewsLetter
 
-<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <div class="single-sidebar-widget newsletter-widget">
-    <h4 class="single-sidebar-widget__title">Newsletter</h4>
+    <h4 class="single-sidebar-widget__title">Bültene Abone Ol!</h4>
     <div class="form-group mt-30">
         <div class="col-autos">
-            <form method="post" action="/NewsLetter/Subscribe">
-           
-            <input type="text" asp-for="Email" class="form-control" id="inlineFormInputGroup" placeholder="Emailinizi Giriniz." onfocus="this.placeholder = ''"
-                   onblur="this.placeholder = 'Enter email'">
-                <button class="bbtns d-block mt-20 w-100">Abone Ol</button>
-
+            <form id="subscribeForm">
+                <input type="email" name="Email" class="form-control" id="inlineFormInputGroup" placeholder="Emailinizi Giriniz."
+                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Emailinizi Giriniz.'" required />
+                <button type="submit" class="bbtns d-block mt-20 w-100">Abone Ol</button>
             </form>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // TempData["SuccessMessage"] var mı kontrol et
-            var successMessage = '@TempData["SuccessMessage"]';
-            if (successMessage) {
-                Swal.fire({
-                    title: 'Başarılı!',
-                    text: successMessage,
-                    icon: 'success',
-                    confirmButtonText: 'Tamam'
-                });
-            }
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#subscribeForm').on('submit', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/NewsLetter/Subscribe',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Başarılı!',
+                            text: response.message,
+                            confirmButtonText: 'Tamam'
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Hata!',
+                            text: response.message,
+                            confirmButtonText: 'Tamam'
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hata!',
+                        text: 'Bir hata oluştu. Lütfen tekrar deneyin.',
+                        confirmButtonText: 'Tamam'
+                    });
+                }
+            });
         });
-    </script>
-}
+    });
+</script>
