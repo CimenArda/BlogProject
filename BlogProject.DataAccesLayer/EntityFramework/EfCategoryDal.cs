@@ -1,4 +1,5 @@
 ﻿using BlogProject.DataAccesLayer.Context;
+using Microsoft.EntityFrameworkCore;
 using SensiveBlogProject.DataAccessLayer.Abstract;
 using SensiveBlogProject.DataAccessLayer.Repositories;
 using SensiveBlogProject.EntityLayer.Concrete;
@@ -14,6 +15,14 @@ namespace SensiveBlogProject.DataAccessLayer.EntityFramework
     {
         public EfCategoryDal(BlogContext context) : base(context)
         {
+        }
+
+        public List<Category> GetAllCategoriesWithArticle()
+        {
+            using (var context = new BlogContext())
+            {
+                return context.Categories.Include(c => c.Articles).ToList();
+            }
         }
     }
 }
