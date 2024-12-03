@@ -5,7 +5,16 @@
 }
 
  @await Component.InvokeAsync("_DefaultSliderComponentPartial")
-@await Component.InvokeAsync("_DefaultArticleListComponentPartial")  @* içerisinde diğer view componentler mevcut *@
+@{
+    int page = 1;
+    if (ViewContext.HttpContext.Request.Query.ContainsKey("page") && int.TryParse(ViewContext.HttpContext.Request.Query["page"], out int parsedPage))
+    {
+        page = parsedPage;
+    }
+}
+
+@await Component.InvokeAsync("_DefaultArticleListComponentPartial", new { page })
+@* içerisinde diğer view componentler mevcut *@
 
 
 

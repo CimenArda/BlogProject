@@ -12,10 +12,18 @@ namespace BlogProject.PresentationLayer.ViewComponents.DefaultViewComponents
             _articleService = articleService;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int page = 1, int pageSize = 3)
         {
-            var values = _articleService.TGetAll();
-            return View(values);
+            var totalArticles = _articleService.TGetAll();
+            var articles = totalArticles
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            ViewBag.TotalPages = (int)Math.Ceiling(totalArticles.Count / (double)pageSize);
+            ViewBag.CurrentPage = page;
+
+            return View(articles);
         }
     }
 }
