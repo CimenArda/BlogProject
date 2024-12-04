@@ -2,12 +2,22 @@
 @model Comment
 <div class="comment-form">
     <h4>Yorum Yap</h4>
-    @if (TempData["ErrorMessage"] != null)
+    @if (!User.Identity.IsAuthenticated) // Kullanıcı giriş yapmamışsa
     {
-        <div class="alert alert-danger">
-            @TempData["ErrorMessage"]
-        </div>
-    }else
+        if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                Yorum yapabilmek için giriş yapmanız gerekiyor.
+            </div>
+        }
+    }
+    else
     {
         <form method="post" asp-action="AddComment" asp-controller="Comment">
             <input type="hidden" name="ArticleId" value="@Model.ArticleId" />
