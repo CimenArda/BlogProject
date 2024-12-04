@@ -15,6 +15,8 @@ namespace BlogProject.PresentationLayer.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.v1 = "İletişim";
+            ViewBag.v2 = "Gönder Gelsin!";
             return View();
         }
 

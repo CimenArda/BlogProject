@@ -6,6 +6,9 @@ namespace BlogProject.PresentationLayer.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.v1 = "Ana Sayfa";
+            ViewBag.v2 = "Genel Bakış";
+
             return View();
         }
     }
