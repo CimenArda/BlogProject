@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SensiveBlogProject.BusinessLayer.Abstract;
 
 namespace BlogProject.PresentationLayer.ViewComponents.ArticleDetailViewComponents
 {
     public class _ArticleDetailAuthorAreaComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IArticleService _articleService;
+
+        public _ArticleDetailAuthorAreaComponentPartial(IArticleService articleService)
         {
-            return View();
+            _articleService = articleService;
+        }
+
+        public IViewComponentResult Invoke(int id)
+        {
+            var value = _articleService.TGetArticleByIdWithTagCloudAndAppUser(id);
+
+            return View(value);
         }
     }
 }

@@ -17,6 +17,14 @@ namespace SensiveBlogProject.DataAccessLayer.EntityFramework
         {
         }
 
+        public Article GetArticleByIdWithTagCloudAndAppUser(int id)
+        {
+            using (var context = new BlogContext())
+            {
+                return context.Articles.Where(x => x.ArticleId == id).Include(x => x.AppUser).FirstOrDefault();
+            }
+        }
+
         public List<Article> LastTake5ListArticlesWithCategory()
         {
             using (var context = new BlogContext())

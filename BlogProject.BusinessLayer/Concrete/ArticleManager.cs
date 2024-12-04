@@ -31,7 +31,10 @@ namespace SensiveBlogProject.BusinessLayer.Concrete
             return _ArticleDal.GetAll();
         }
 
-      
+        public Article TGetArticleByIdWithTagCloudAndAppUser(int id)
+        {
+            return _ArticleDal.GetArticleByIdWithTagCloudAndAppUser(id);
+        }
 
         public Article TGetById(int id)
         {

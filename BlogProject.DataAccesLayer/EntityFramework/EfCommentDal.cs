@@ -17,5 +17,11 @@ namespace SensiveBlogProject.DataAccessLayer.EntityFramework
         {
         }
 
+        List<Comment> ICommentDal.GetCommentListByArticleId(int id)
+        {
+            var context = new BlogContext();
+            var values = context.Comments.Where(x => x.ArticleId == id).Include(y => y.AppUser).Include(z => z.Article).ToList();
+            return values;
+        }
     }
 }

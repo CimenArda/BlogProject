@@ -11,15 +11,15 @@
         <div class="row">
             <div class="col-lg-8">
 
-                @await Component.InvokeAsync("_ArticleDetailMainComponentPartial")
+                @await Component.InvokeAsync("_ArticleDetailMainComponentPartial", new { id = ViewBag.id })
 
-                @await Component.InvokeAsync("_ArticleDetailAuthorAreaComponentPartial")
+                @await Component.InvokeAsync("_ArticleDetailAuthorAreaComponentPartial", new { id = ViewBag.id })
 
-                @await Component.InvokeAsync("_ArticleDetailCommentListComponentPartial")
+                @await Component.InvokeAsync("_ArticleDetailCommentListComponentPartial", new { id = ViewBag.id })
 
-                @await Component.InvokeAsync("_ArticleDetailAddCommentComponentPartial")
+                @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new Comment { ArticleId = ViewBag.id })
 
-                @* add comment area *@
+
             </div>
 
 
