@@ -23,6 +23,10 @@
     <None Include="wwwroot\colorlib-regform-7\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\variables.scssc" />
     <None Include="wwwroot\colorlib-regform-7\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\main.scssc" />
     <None Include="wwwroot\colorlib-regform-7\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\responsive.scssc" />
+    <None Include="wwwroot\pluto-1.0.0\.DS_Store" />
+    <None Include="wwwroot\pluto-1.0.0\images\.DS_Store" />
+    <None Include="wwwroot\pluto-1.0.0\images\layout_img\.DS_Store" />
+    <None Include="wwwroot\pluto-1.0.0\modules\.DS_Store" />
     <None Include="wwwroot\sensive-master\img\blog\.DS_Store" />
     <None Include="wwwroot\sensive-master\img\gallery\.DS_Store" />
     <None Include="wwwroot\sensive-master\img\instagram\.DS_Store" />
