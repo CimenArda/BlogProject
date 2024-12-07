@@ -12,6 +12,7 @@ namespace SensiveBlogProject.BusinessLayer.Abstract
         List<Article> TLastTake5ListArticlesWithCategory();
         Article TGetArticleByIdWithTagCloudAndAppUser(int id);
 
+        List<Article> TGetArticleListByAppUserId(int id);
 
     }
 }

@@ -25,6 +25,16 @@ namespace SensiveBlogProject.DataAccessLayer.EntityFramework
             }
         }
 
+        public List<Article> GetArticleListByAppUserId(int id)
+        {
+            using (var context = new BlogContext())
+            {
+                return context.Articles
+                                       .Where(a => a.AppUserId == id)
+                                       .ToList(); 
+            }
+        }
+
         public List<Article> LastTake5ListArticlesWithCategory()
         {
             using (var context = new BlogContext())
