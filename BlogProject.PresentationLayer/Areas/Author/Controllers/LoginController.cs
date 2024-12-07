@@ -37,5 +37,16 @@ namespace BlogProject.PresentationLayer.Areas.Author.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync(); // Oturumu kapat
+            return RedirectToAction("Index", "Login",new { areas = "Author"}); // Yönlendirme
+        }
+
+
+
     }
 }
